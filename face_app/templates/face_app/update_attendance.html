@@ -1,0 +1,39 @@
+{% extends 'face_app/template.html' %}
+
+{% block content %}
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Update Attendance</h4>
+        <p class="card-description"> 
+        	You can update attendance information here.
+        </p>
+		<form method="POST" enctype="multipart/form-data"> 
+		    {% csrf_token %}
+		    {% for att in attendance %}
+		    <input type="hidden" name="id" value="{{att.id}}">
+		    <label for="std">Student Name and ID:</label>
+		    <p id='std'>{{att.student}}</p>
+		    <br>
+		    <label for="class">Class Name:</label>
+		    <p id='class'>{{att.classcourse}}</p>
+		    <br>
+		    <label for="date">Date:</label>
+		    <p id='date'>{{att.date}}</p>
+		    <br>
+		    <label for="time">Time:</label>
+		    <input id="time" value="{{att.time|time:'H:i'}}" name="time" 
+		    type="time" class="form-control">
+		    <br>
+		    <label for="entry">Entry:</label>
+		    <p id="entry">{{att.entry}}</p>
+		    <br>
+		    {% endfor %}
+		    <button type="submit" class="btn btn-rounded btn-inverse-primary mr-2">Submit</button>
+			<a href="{% url 'attendance' %}" class="btn btn-rounded btn-inverse-danger">Cancel</a>
+		</form>
+	  </div>
+	</div>
+</div>
+
+{% endblock content %}

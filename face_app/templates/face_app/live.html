@@ -1,0 +1,15 @@
+{% extends 'face_app/template.html' %}
+
+{% block content %}
+<div class="container-fluid">
+	<h2 style="text-align: center">Web Cam 1 Live</h2>
+	<p style="text-align: center">
+		<img src="{% url 'webcam1' %}" height="500" width="980" style="border: solid">
+	</p>
+	<br><br><br><br>
+	<h2 style="text-align: center">Web Cam 2 Live</h2>
+	<p style="text-align: center">
+		<img src="{% url 'webcam2' %}" height="500" width="980" style="border: solid">
+	</p>
+</div>
+{% endblock content %}

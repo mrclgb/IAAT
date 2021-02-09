@@ -1,0 +1,18 @@
+{% extends 'face_app/template.html' %}
+
+{% block content %}
+<h2>Student Face Information</h2>
+<hr style="width: 40%; color: white">
+<div class="container-fluid" style="background-color: #5A5A5A; border-style: solid; border-radius: 10px; border-width: 3px; scroll-behavior: auto; padding: 15px">
+	<div class="row">
+		{% for face in face %}
+		<div class="col-sm-4">
+		<img src="{{face.imageURL}}" width="320" height="250" style="border: solid 3px;">
+		</div>
+		{% endfor %}
+	</div>
+</div>
+<br><br><br>
+<a href="{% url 'students' %}" class="btn btn-rounded btn-outline-danger">Back</a>
+
+{% endblock content %}

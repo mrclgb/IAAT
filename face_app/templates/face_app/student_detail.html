@@ -1,0 +1,38 @@
+{% extends 'face_app/template.html' %}
+
+{% block content %}
+<h2>Student Information</h2>
+<hr style="width: 40%; color: white">
+<div class="container-fluid">
+	<table>
+		<tbody>
+		<tr>
+			<td width="180">Firstname:</td>
+			<td>{{student.firstname}}</td>
+		</tr>
+		<tr>
+			<td>Lastname:</td>
+			<td>{{student.lastname}}</td>
+		</tr>
+		<tr>
+			<td>Student ID:</td>
+			<td>{{student.student_id}}</td>
+		</tr>
+		<tr>
+			<td>School Year:</td>
+			<td>{{student.year}}</td>
+		</tr>
+		<tr>
+			<td>Major:</td>
+			<td>{{student.major}}</td>
+		</tr>
+		</tbody>
+	</table>
+</div>
+<br><br><br><br>
+<a href="{% url 'students'%}" class="btn btn-rounded btn-outline-danger">Back</a>
+<a href="{% url 'studentface_detail' student.id %}" class="btn btn-rounded btn-outline-primary">
+View Face
+</a>
+
+{% endblock content %}

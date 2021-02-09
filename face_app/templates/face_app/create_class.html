@@ -1,0 +1,41 @@
+{% extends 'face_app/template.html' %}
+
+{% block content %}
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Create Class</h4>
+        <p class="card-description"> 
+        	Please fill in the information.
+        </p>
+		<form method="POST" enctype="multipart/form-data"> 
+		    {% csrf_token %}
+		    <label for="class_name">Class Name:</label>
+		    <input type="text" id="class_name" name="class_name" class="form-control text-light">
+		    <br>
+		    <label for="class_id">Class ID:</label>
+		    <input type="text" id="class_id" name="class_id" class="form-control text-light">
+		    <br>
+		    <label for="day">Day: </label>
+		    <p style="font-size: 14px">You may control-click (Windows) or command-click (Mac) to select more than one.</p>
+		    <select multiple size="5" name="day" id="day" class="form-control text-light">
+		    	<option value="Monday">Monday</option>
+		    	<option value="Tuesday">Tuesday</option>
+		    	<option value="Wednesday">Wednesday</option>
+		    	<option value="Thursday">Thursday</option>
+		    	<option value="Friday">Friday</option>
+		    </select>
+		    <br>
+		    <label for="start">Start:</label>
+		    <input id="start" name="start" type="time" class="form-control">
+		    <br>
+		    <label for="end">End:</label>
+		    <input id="end" name="end" type="time" class="form-control">
+		    <br>
+		    <button type="submit" class="btn btn-rounded btn-inverse-primary mr-2">Submit</button>
+			<a href="{% url 'class' %}" class="btn btn-rounded btn-inverse-danger">Cancel</a>
+		</form><br>
+	  </div>
+	</div>
+</div>
+{% endblock content %}

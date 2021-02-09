@@ -1,0 +1,56 @@
+{% extends 'face_app/template.html' %}
+
+{% block content %}
+
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+      <div class="card-body">
+        <h3 class="card-title">Class Detail</h3>
+        <p class="card-description"> 
+          <div class="row">
+            <div class="col">Course Name: {{course.name}}</div>
+            <div class="col">Course ID: {{course.course_id}}</div>
+          </div>
+        </p>
+      </div>
+        <div class="table-responsive">
+          <input type="hidden" id="classcourse" value="{{course.id}}">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>
+                  <div class="form-check form-check-muted m-0">
+                      <label class="form-check-label">
+                        <input type="checkbox" class="form-check-input select_all" 
+                        onclick="toggle(this)">
+                      </label>
+                    </div>
+                </th>
+                <th>Student Name</th>
+                <th>Student ID</th>
+              </tr>
+            </thead>
+            <tbody>
+            {% csrf_token %}
+            {% for data in students %}
+              <tr id="{{data.id}}">
+                <td>
+                  <div class="form-check form-check-muted m-0">
+                      <label class="form-check-label">
+                        <input type="checkbox" class="form-check-input select" 
+                        value="{{data.id}}">
+                      </label>
+                  </div>
+                </td>
+            	  <td>{{data.firstname}}&nbsp;{{data.lastname}}</td>
+            	  <td>{{data.student_id}}</td>
+              </tr>
+           	{% endfor %}
+            </tbody>
+          </table>
+      </div>
+    </div>
+</div>
+<button class="btn btn-rounded btn-outline-danger" id="enrollDelete" type="submit">Delete</button>
+<a href="{% url 'class' %}" class="btn btn-rounded btn-outline-primary">Back</a>
+{% endblock content %}

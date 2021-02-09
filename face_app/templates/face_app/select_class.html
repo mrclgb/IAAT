@@ -1,0 +1,24 @@
+{% extends 'face_app/template.html' %}
+
+{% block content %}
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Select Class</h4>
+        <p class="card-description"> 
+        	Please select which class to take attendance.
+        </p>
+		<form method="get" action="/create_attendance/"> 
+		    <select name="class_id" class="form-control text-light">
+		    	{% for class in classcourse %}
+		    	<option value="{{class.course_id}}">{{class.name}}&emsp;{{class.course_id}}</option>
+		    	{% endfor %}
+		    </select><br>
+		    <button type="submit" class="btn btn-rounded btn-inverse-primary mr-2">Go</button>
+			<a href="{% url 'attendance' %}" class="btn btn-rounded btn-inverse-danger">Back</a>
+		</form>
+	  </div>
+	</div>
+</div>
+
+{% endblock content %}

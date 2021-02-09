@@ -1,0 +1,20 @@
+{% extends 'face_app/template.html' %}
+
+{% block content %}
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Add Face</h4>
+        <p class="card-description"> 
+        	Please add relavant student face.
+        </p>
+		<form method="POST" enctype="multipart/form-data"> 
+		    {% csrf_token %}
+		    {{form.as_p}}
+		    <button type="submit" class="btn btn-rounded btn-inverse-primary mr-2">Submit</button>
+			<a href="{% url 'students' %}" class="btn btn-rounded btn-inverse-danger">Cancel</a>
+		</form>
+	  </div>
+	</div>
+</div>
+{% endblock content %}
