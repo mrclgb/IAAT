@@ -3,3 +3,5 @@ This is a prototype version. The primary purpose of the project is to track stud
 
 * There are code redundencies.
 * Testings are done manually.
+* Developed on Django framework.
+* Use two web cams.
